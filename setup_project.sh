@@ -34,3 +34,9 @@ bob@example.com,Bob Smith,7,8
 charlie@example.com,Charlie Davis,4,11
 diana@example.com,Diana Prince,15,0
 EOF
+
+cat > attendance_tracker_$input/reports/reports.log << 'EOF'
+--- Attendance Report Run: 2026-02-06 18:10:01.468726 ---
+[2026-02-06 18:10:01.469363] ALERT SENT TO bob@example.com: URGENT: Bob Smith, your attendance is 46.7%. You will fail this class.
+[2026-02-06 18:10:01.469424] ALERT SENT TO charlie@example.com: URGENT: Charlie Davis, your attendance is 26.7%. You will fail this class.
+EOF
