@@ -13,3 +13,16 @@ else
     echo "Creating folders..." 
     mkdir -p "attendance_tracker_$input/Helpers/" "attendance_tracker_$input/reports"
 fi 
+
+# A heredoc for config.json
+
+cat > attendance_tracker_$input/Helpers/config.json << 'EOF'
+{
+    "thresholds": {
+        "warning": 75,
+        "failure": 50
+    },
+    "run_mode": "live",
+    "total_sessions": 15
+}
+EOF
