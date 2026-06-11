@@ -127,7 +127,7 @@ then
 	  [[ ! "$warning" =~ ^[0-9]+$ ]] || \
           [ "$warning" -gt 100 ]
        then
-            echo "Invalid input, write the correct input. "
+            echo "Invalid input, write the correct input.;"
             exit 1
 
 
@@ -153,4 +153,11 @@ then
        echo " Thresholds updated successfully"
 fi
 
-    
+#Checking if python exists
+echo "Searching for python3..."
+if python3 --version >/dev/null
+then 
+	echo "python3 is installed: $(python3 --version)"
+else
+	echo "python3 is not found"
+fi
