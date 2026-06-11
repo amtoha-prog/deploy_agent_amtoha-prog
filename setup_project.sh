@@ -162,5 +162,68 @@ else
 	echo "python3 is not found"
 fi
 
-echo "Project setup complete! Continue at attendance_tracker_$input"
 
+
+# Directory structure verification
+echo "Verifying directory structure..."
+errors=0
+
+if [ ! -d "attendance_tracker_$input" ]
+then 
+	echo "Error found: Main directory is missing"
+	errors=$((errors + 1))
+
+fi
+
+# Helpers directory
+if [ ! -d "attendance_tracker_$input/Helpers" ]
+then
+	echo "Error found: Helpers directory missing"
+	errors=$((errors + 1))
+fi
+
+# reports directory
+if [ ! -d "attendance_tracker_$input/reports" ]
+then
+        echo "Error found: reports directory missing"
+        errors=$((errors + 1))
+fi
+
+#attendance_checker.py
+if [ ! -f "attendance_tracker_$input/attendance_checker.py" ]
+then
+	echo "Error found: attendance_checker.py missing"
+	errors=$((errors + 1)) 
+fi
+
+# config.json file located in Helpers directory
+if [ ! -f "attendance_tracker_$input/Helpers/config.json" ]
+then
+        echo "Error found: config.json file missing"
+        errors=$((errors + 1))
+fi
+
+# assests.csv file located in Helpers directory
+if [ ! -f "attendance_tracker_$input/Helpers/assets.csv" ]
+then
+        echo "Error found: assets.csv file missing"
+        errors=$((errors + 1))
+fi
+
+# reports.log file loacted in reports folders
+if [ ! -f "attendance_tracker_$input/reports/reports.log" ]
+then
+        echo "Error found: reports.log file missing"
+        errors=$((errors + 1))
+fi
+
+# If no error found
+if [ $errors -eq 0 ]
+then 
+	echo "Structure verified was successful"
+else
+	echo "$errors issue found"
+fi
+
+# Project verification
+echo "Project setup complete! Continue at attendance_tracker_$input"
