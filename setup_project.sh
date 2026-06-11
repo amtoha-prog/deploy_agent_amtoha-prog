@@ -3,7 +3,27 @@
 read -p "Enter your project name: " input
 echo "attendance_tracker_$input"
 
+# This is a signal trap that the user cancels mid execution
+
+signal_trap() {
+
+    echo "Script was interrupted"
+
+    tar -czf "attendance_tracker_${input}_archive" "attendance_tracker_$input"
+
+    if [ -d "attendance_tracker_$input" ]
+    then
+	
+         rm -rf "attendance_tracker_$input"
+    fi     
+    # exit 1 prevents any unecessary running of the rest of te script after archiving.
+    exit 1
+}
+
+trap signal_trap SIGINT
+
 # This checks for existing directory if not creates the directories
+
 if [ -d "attendance_tracker_$input" ]
 then
    echo "Directory already exists"
@@ -12,6 +32,7 @@ then
 else 
     echo "Creating folders..." 
     mkdir -p "attendance_tracker_$input/Helpers/" "attendance_tracker_$input/reports"
+
 fi 
 
 # A heredoc for config.json
