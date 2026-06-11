@@ -103,7 +103,7 @@ def run_attendance_check():
                 message = f"WARNING: {name}, your attendance is {attendance_pct:.1f}%. Please be careful."
 
             if message:
-                if config['run_mode'] == "live":
+               if config['run_mode'] == "live":
                     log.write(f"[{datetime.now()}] ALERT SENT TO {email}: {message}\n")
                     print(f"Logged alert for {name}")
                 else:
@@ -112,3 +112,45 @@ def run_attendance_check():
 if __name__ == "__main__":
     run_attendance_check()
 EOF
+
+# Entering new threshold value
+read -p "Do you want to update thresholds? (yes/no): " user_input
+
+if [ "$user_input" = "yes" ] 
+then
+
+        # Warning threshold
+       read -p " Enter warning threshold value: " warning
+       
+       # Verifies if the numbers are valid for warning
+       if [ -z "$warning" ] || \
+	  [[ ! "$warning" =~ ^[0-9]+$ ]] || \
+          [ "$warning" -gt 100 ]
+       then
+            echo "Invalid input, write the correct input. "
+            exit 1
+
+
+	fi
+       
+       # Failure threshold
+       read -p " Enter failure threshold value: " failure
+       
+       # Verifies if the number is valid for failure
+       if [ -z "$failure" ] || \
+	  [[ ! "$failure" =~ ^[0-9]+$ ]] || \
+          [ "$failure" -gt 100 ] 
+       then 
+	     echo "Invalid input, write the correct input. "
+             exit 1
+       fi
+
+
+# Using sed  to change the actual numers from config.json
+       sed -i 's/"warning": [0-9]*/"warning": '"$warning"'/' "attendance_tracker_$input/Helpers/config.json"
+       sed -i 's/"failure": [0-9]*/"failure": '"$failure"'/' "attendance_tracker_$input/Helpers/config.json"
+       
+       echo " Thresholds updated successfully"
+fi
+
+    
