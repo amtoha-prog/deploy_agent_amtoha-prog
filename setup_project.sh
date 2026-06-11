@@ -161,3 +161,6 @@ then
 else
 	echo "python3 is not found"
 fi
+
+echo "Project setup complete! Continue at attendance_tracker_$input"
+
