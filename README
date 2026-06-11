@@ -1,6 +1,14 @@
 Project: Automated Project Bootstrapping & Process Management
 The Power of Infrastructure as Code (IaC)
 
- - This is a shell script tat automates the setup of a student attendance tracker by creating a directory , generating files, configuring and validating.
+ - This is a shell script that automates the setup of a student attendance tracker by creating a directory , generating files, configuring and validating.
+
+- The shell script runs on a Linux operating system, the tools used were git and bash, the required file is setup_project.sh
+
+- Clone into the repository, navigate into the repository, make the script executable, then run the script. The script will let you fill in your project name and if you want to update the attendance thresholds.
+
+-After the running the script, a directory named attendance_tracker_{input} is created containing attendance_checker.py, a Helpers/ folder with two files config.json and assets.csv, and a reports/ folder with only 1 file reports.log. 
+
+-If the thresholds are updated , the config.json file will reflect the new warning and failure values enterd by the user.
 
 
