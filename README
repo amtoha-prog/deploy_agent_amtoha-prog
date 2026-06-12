@@ -11,4 +11,8 @@ The Power of Infrastructure as Code (IaC)
 
 -If the thresholds are updated , the config.json file will reflect the new warning and failure values enterd by the user.
 
+-To trigger the archive feature, press Ctrl+C while the script is running. The script will catch the interrupted signal, pack the incomplete project directory into an archive named attendance_tracker_{input}_archive, delete the incomplete directory and exit. The archive will be saved in the same folder as setup_project.sh that runs from.
 
+- The script checks if python3 is intalled using python3 --version. If found, it displays a successful message with the installed version. If not found, a warning message is displayed.
+
+-If the project directory already exists, an error message is printed and exits immediately. If invalid threshold value is entered, the script prints an error message and exits already.
