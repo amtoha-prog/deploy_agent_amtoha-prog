@@ -127,7 +127,7 @@ then
 	  [[ ! "$warning" =~ ^[0-9]+$ ]] || \
           [ "$warning" -gt 100 ]
        then
-            echo "Invalid input, write the correct input.;"
+            echo "Invalid input, write the correct input."
             exit 1
 
 

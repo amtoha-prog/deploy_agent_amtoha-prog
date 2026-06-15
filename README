@@ -16,3 +16,5 @@ The Power of Infrastructure as Code (IaC)
 - The script checks if python3 is intalled using python3 --version. If found, it displays a successful message with the installed version. If not found, a warning message is displayed.
 
 -If the project directory already exists, an error message is printed and exits immediately. If invalid threshold value is entered, the script prints an error message and exits already.
+
+https://drive.google.com/file/d/1g0ytNn2TS6Qz5J4lCe7QxIAMwmO5H4mg/view?usp=sharing
